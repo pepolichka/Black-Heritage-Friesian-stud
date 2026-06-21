@@ -1,0 +1,1186 @@
+:root {
+    --bg: #080b0d;
+    --bg-deep: #050607;
+    --bg-soft: #0b0f11;
+    --panel: #111820;
+    --panel-light: #182027;
+    --panel-border: rgba(199, 150, 69, 0.35);
+    --panel-border-soft: rgba(242, 232, 215, 0.09);
+    --text: #f2eee6;
+    --muted: #9b9a94;
+    --muted-2: #a9a39a;
+    --gold: #d2a765;
+    --gold-dark: #b9853e;
+    --danger: #d77a6f;
+    --success: #8fcf9d;
+    --shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
+    --radius: 8px;
+    --container: 1320px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.container {
+    width: min(100% - 48px, var(--container));
+    margin: 0 auto;
+}
+
+.section {
+    padding: 96px 0;
+}
+
+.section-black {
+    background: var(--bg-deep);
+}
+
+.section-dark {
+    background: var(--bg-soft);
+}
+
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 42px;
+}
+
+.section-heading.centered {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.section-heading h2,
+.request-copy h2,
+.site-footer h2 {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.section-heading p,
+.about-text p,
+.horse-details p,
+.stallion-info p,
+.request-copy p,
+.site-footer p,
+.site-footer a {
+    color: var(--muted);
+}
+
+.section-label,
+.eyebrow {
+    margin: 0 0 10px;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #11100e;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background: #f0c474;
+}
+
+.btn-outline {
+    border-color: var(--panel-border);
+    background: rgba(8, 11, 13, 0.34);
+    color: var(--text);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder {
+    display: grid;
+    min-height: 180px;
+    place-items: center;
+    border: 1px dashed var(--panel-border);
+    background: linear-gradient(135deg, #111820, #0a0d11);
+    color: var(--muted);
+    padding: 24px;
+    text-align: center;
+}
+
+.site-header {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    border-bottom: 1px solid transparent;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.scrolled,
+.site-header.menu-active {
+    background: rgba(8, 11, 13, 0.94);
+    border-bottom-color: var(--panel-border-soft);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(16px);
+}
+
+.header-inner {
+    width: min(100% - 48px, var(--container));
+    min-height: 78px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.brand {
+    display: grid;
+    min-width: 178px;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.brand small {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.site-nav {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 22px;
+}
+
+.nav-link {
+    position: relative;
+    color: var(--muted-2);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text);
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.header-action {
+    min-width: 170px;
+}
+
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    background: rgba(17, 24, 32, 0.88);
+    color: var(--gold);
+    cursor: pointer;
+}
+
+.hero {
+    position: relative;
+    min-height: 760px;
+    overflow: hidden;
+    display: grid;
+    align-items: center;
+}
+
+.hero-backdrop {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-backdrop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( 90deg, rgba(5, 6, 7, 0.55) 0%, rgba(5, 6, 7, 0.24) 36%, rgba(5, 6, 7, 0.05) 68%, rgba(5, 6, 7, 0.18) 100%), linear-gradient( 180deg, rgba(5, 6, 7, 0.08) 0%, rgba(5, 6, 7, 0) 62%, #080b0d 100%);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(100% - 48px, var(--container));
+    margin: 0 auto;
+    padding-top: 88px;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero h1,
+.hero-text,
+.hero-actions,
+.hero .eyebrow {
+    max-width: 640px;
+}
+
+.hero h1 {
+    margin: 0 0 26px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.hero-text {
+    max-width: 570px;
+    margin: 0 0 34px;
+    color: var(--muted-2);
+    font-size: 18px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.about-section {
+    background: #0b1114;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.25fr;
+    gap: 58px;
+    align-items: center;
+}
+
+.about-text {
+    max-width: 560px;
+}
+
+.about-text .btn {
+    margin-top: 18px;
+}
+
+.about-main-photo {
+    min-height: 360px;
+    overflow: hidden;
+    border: 1px solid var(--panel-border-soft);
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 46px;
+}
+
+.small-card,
+.service-card,
+.advantage-card,
+.young-card,
+.stallion-card {
+    border: 1px solid var(--panel-border-soft);
+    background: var(--panel);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.small-card:hover,
+.service-card:hover,
+.advantage-card:hover,
+.young-card:hover,
+.stallion-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--panel-border);
+    background: #131c24;
+}
+
+.small-card {
+    padding: 24px;
+}
+
+.small-card h3,
+.service-card h3,
+.advantage-card h3,
+.young-card h3,
+.stallion-info h3,
+.horse-details h3 {
+    margin: 0;
+    color: var(--text);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.small-card p,
+.service-card p,
+.advantage-card p,
+.young-card p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.facility-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 34px;
+}
+
+.facility-strip figure {
+    height: 176px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--panel-border-soft);
+}
+
+.facility-strip img,
+.about-main-photo img,
+.young-photo img,
+.stallion-photo img,
+.gallery-photo {
+    transition: transform 0.45s ease;
+}
+
+.facility-strip figure:hover img,
+.about-main-photo:hover img,
+.young-card:hover img,
+.stallion-card:hover img,
+.horse-gallery:hover .gallery-photo.active {
+    transform: scale(1.04);
+}
+
+.horse-catalog {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 28px;
+    align-items: stretch;
+}
+
+.horse-tabs {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+}
+
+.horse-tab {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 12px;
+    align-items: center;
+    min-height: 72px;
+    border: 1px solid var(--panel-border-soft);
+    border-radius: 4px;
+    background: #0d1217;
+    color: var(--text);
+    cursor: pointer;
+    padding: 9px;
+    text-align: left;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.horse-tab:hover,
+.horse-tab.active {
+    border-color: var(--gold);
+    background: #151d24;
+    transform: translateX(3px);
+}
+
+.horse-tab-icon {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.horse-tab strong {
+    display: block;
+    color: var(--gold);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.horse-tab small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.horse-panels {
+    min-width: 0;
+}
+
+.horse-panel {
+    display: none;
+    grid-template-columns: minmax(0, 1.25fr) 390px;
+    gap: 28px;
+}
+
+.horse-panel.active {
+    display: grid;
+}
+
+.horse-gallery {
+    position: relative;
+    overflow: hidden;
+    min-height: 610px;
+    border: 1px solid var(--panel-border-soft);
+    background: var(--panel);
+}
+
+.gallery-window {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.gallery-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.35s ease, transform 0.45s ease;
+}
+
+.gallery-photo.active {
+    opacity: 1;
+}
+
+.gallery-btn {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid var(--panel-border);
+    border-radius: 50%;
+    background: rgba(5, 6, 7, 0.62);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 28px;
+    transform: translateY(-50%);
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.gallery-btn:hover {
+    background: var(--gold);
+    color: #11100e;
+}
+
+.gallery-prev {
+    left: 18px;
+}
+
+.gallery-next {
+    right: 18px;
+}
+
+.gallery-dots {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 18px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.gallery-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(242, 238, 230, 0.42);
+    cursor: pointer;
+}
+
+.gallery-dot.active {
+    background: var(--gold);
+}
+
+.horse-details {
+    padding: 34px;
+    border: 1px solid var(--panel-border-soft);
+    background: var(--panel);
+}
+
+.horse-details h3 {
+    margin-bottom: 22px;
+    font-size: 34px;
+}
+
+.horse-details dl,
+.stallion-info dl {
+    display: grid;
+    gap: 12px;
+    margin: 0 0 22px;
+}
+
+.horse-details dl div,
+.stallion-info dl div {
+    display: grid;
+    grid-template-columns: 136px 1fr;
+    gap: 16px;
+    border-bottom: 1px solid var(--panel-border-soft);
+    padding-bottom: 10px;
+}
+
+dt {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+dd {
+    margin: 0;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.horse-details .btn {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.stallions-section {
+    background: var(--bg);
+}
+
+.stallion-list {
+    display: grid;
+    gap: 26px;
+}
+
+.stallion-card {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    overflow: hidden;
+}
+
+.stallion-photo {
+    min-height: 360px;
+}
+
+.stallion-info {
+    padding: 36px;
+}
+
+.stallion-info h3 {
+    margin-bottom: 22px;
+    font-size: 36px;
+}
+
+.youngstock-section {
+    background: #111820;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.young-card {
+    overflow: hidden;
+}
+
+.young-photo {
+    height: 230px;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 22px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.service-card,
+.advantage-card {
+    padding: 26px 18px;
+    text-align: center;
+}
+
+.service-icon,
+.advantage-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 18px;
+    object-fit: contain;
+}
+
+.service-card h3,
+.advantage-card h3 {
+    font-size: 15px;
+}
+
+.achievements {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden;
+    display: grid;
+    align-items: center;
+    background: var(--bg-deep);
+}
+
+.achievement-bg {
+    position: absolute;
+    inset: 0;
+}
+
+.achievement-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(5, 6, 7, 0.92), rgba(5, 6, 7, 0.58), rgba(5, 6, 7, 0.94));
+}
+
+.achievement-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.achievement-content {
+    position: relative;
+    padding: 76px 0;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+    margin-top: 38px;
+}
+
+.achievement-item {
+    border-left: 1px solid var(--panel-border);
+    padding-left: 18px;
+}
+
+.achievement-item strong {
+    display: block;
+    color: var(--gold);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.achievement-item span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.request-section {
+    background: linear-gradient(180deg, #0b0f11, #050607);
+}
+
+.request-grid {
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.contact-note {
+    margin-top: 28px;
+    border-left: 1px solid var(--panel-border);
+    padding-left: 18px;
+}
+
+.contact-note p {
+    margin: 5px 0;
+}
+
+.contact-note strong {
+    color: var(--gold);
+}
+
+.request-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    border: 1px solid var(--panel-border-soft);
+    background: rgba(17, 24, 32, 0.76);
+    padding: 28px;
+}
+
+.form-row {
+    display: grid;
+    gap: 7px;
+}
+
+.form-wide {
+    grid-column: 1 / -1;
+}
+
+label {
+    color: var(--muted-2);
+    font-size: 13px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid var(--panel-border-soft);
+    border-radius: 4px;
+    background: #0a0e12;
+    color: var(--text);
+    min-height: 44px;
+    padding: 11px 12px;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.field-highlight {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(210, 167, 101, 0.12);
+}
+
+.check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.check-row input {
+    width: 18px;
+    min-height: 18px;
+    margin-top: 3px;
+    accent-color: var(--gold);
+}
+
+.form-message {
+    grid-column: 1 / -1;
+    min-height: 20px;
+    margin: 0;
+    color: var(--danger);
+    font-size: 13px;
+}
+
+.site-footer {
+    padding: 58px 0;
+    background: #050607;
+    border-top: 1px solid var(--panel-border-soft);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr;
+    gap: 40px;
+}
+
+.site-footer h2 {
+    font-size: 30px;
+}
+
+.site-footer h3 {
+    margin: 0 0 14px;
+    color: var(--gold);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.site-footer p,
+.site-footer a {
+    display: block;
+    margin: 6px 0;
+}
+
+.site-footer a:hover {
+    color: var(--gold);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.admin-page,
+.result-page {
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, rgba(210, 167, 101, 0.12), transparent 30%), var(--bg);
+}
+
+.admin-shell {
+    width: min(100% - 48px, 1280px);
+    margin: 0 auto;
+    padding: 54px 0;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.admin-header h1,
+.result-card h1 {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 42px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.admin-message {
+    border: 1px solid var(--panel-border-soft);
+    background: var(--panel);
+    padding: 24px;
+    color: var(--muted-2);
+}
+
+.admin-message.error {
+    border-color: rgba(215, 122, 111, 0.45);
+    color: var(--danger);
+}
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--panel-border-soft);
+    background: var(--panel);
+}
+
+.requests-table {
+    width: 100%;
+    min-width: 1180px;
+    border-collapse: collapse;
+}
+
+.requests-table th,
+.requests-table td {
+    border-bottom: 1px solid var(--panel-border-soft);
+    padding: 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.requests-table th {
+    color: var(--gold);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.requests-table td {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.result-page {
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.result-card {
+    width: min(100%, 680px);
+    border: 1px solid var(--panel-border-soft);
+    background: var(--panel);
+    padding: 42px;
+    box-shadow: var(--shadow);
+}
+
+.result-card.success {
+    border-color: rgba(143, 207, 157, 0.45);
+}
+
+.result-card.error {
+    border-color: rgba(215, 122, 111, 0.45);
+}
+
+.result-card p,
+.result-card li {
+    color: var(--muted-2);
+}
+
+.result-card ul {
+    padding-left: 20px;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+@media (max-width: 1180px) {
+    .site-nav {
+        gap: 14px;
+    }
+    .header-action {
+        display: none;
+    }
+    .horse-panel {
+        grid-template-columns: 1fr;
+    }
+    .horse-gallery {
+        min-height: 520px;
+    }
+    .service-grid,
+    .advantage-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .achievement-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 920px) {
+    .section {
+        padding: 76px 0;
+    }
+    .header-inner {
+        justify-content: space-between;
+    }
+    .menu-toggle {
+        display: grid;
+        place-items: center;
+    }
+    .site-nav {
+        position: fixed;
+        top: 78px;
+        right: 24px;
+        left: 24px;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 0;
+        border: 1px solid var(--panel-border-soft);
+        background: rgba(8, 11, 13, 0.98);
+        padding: 12px;
+    }
+    .site-nav.open {
+        display: grid;
+    }
+    .nav-link {
+        padding: 13px 6px;
+    }
+    .nav-link::after {
+        bottom: 5px;
+    }
+    .hero {
+        min-height: 680px;
+    }
+    .hero h1 {
+        font-size: 44px;
+    }
+    .about-grid,
+    .request-grid,
+    .stallion-card,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-cards,
+    .facility-strip,
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .horse-catalog {
+        grid-template-columns: 1fr;
+    }
+    .horse-tabs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .horse-tab:hover,
+    .horse-tab.active {
+        transform: none;
+    }
+    .horse-details dl div,
+    .stallion-info dl div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+    .request-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .container,
+    .header-inner,
+    .hero-content,
+    .admin-shell {
+        width: min(100% - 32px, var(--container));
+    }
+    .section-heading h2,
+    .request-copy h2,
+    .admin-header h1,
+    .result-card h1 {
+        font-size: 32px;
+    }
+    .hero {
+        min-height: 640px;
+    }
+    .hero h1 {
+        font-size: 34px;
+    }
+    .hero-text {
+        font-size: 16px;
+    }
+    .hero-actions,
+    .result-actions {
+        display: grid;
+    }
+    .about-cards,
+    .facility-strip,
+    .card-grid,
+    .horse-tabs,
+    .service-grid,
+    .advantage-grid,
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+    .facility-strip figure {
+        height: 220px;
+    }
+    .horse-gallery {
+        min-height: 430px;
+    }
+    .horse-details,
+    .stallion-info,
+    .request-form,
+    .result-card {
+        padding: 24px;
+    }
+    .admin-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
